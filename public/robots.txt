@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://deco-design-64.fr/sitemap-index.xml
+Sitemap: https://deco-design-jmlarbaigs-projects.vercel.app/sitemap-index.xml

@@ -5,7 +5,7 @@
 export const BUSINESS = {
   name: 'Déco & Design',
   // TODO: remplacer par le domaine final une fois acheté (utilisé pour canonical, OG, sitemap)
-  siteUrl: 'https://deco-design-64.fr',
+  siteUrl: 'https://deco-design-jmlarbaigs-projects.vercel.app',
   phone: '07 77 30 70 38',
   phoneHref: 'tel:+33777307038',
   email: 'decoetdesign64@gmail.com',
