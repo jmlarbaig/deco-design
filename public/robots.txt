@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deco-design-64.fr/sitemap-index.xml

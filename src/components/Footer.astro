@@ -1,0 +1,19 @@
+---
+import { BUSINESS } from '../consts';
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-pale/10 text-sage">
+  <div class="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-10 text-[13px] md:flex-row md:items-center md:justify-between md:px-10">
+    <img src="/logo/logo-512.png" alt="Déco & Design" width="512" height="512" class="h-12 w-auto" />
+    <p>{BUSINESS.locality} ({BUSINESS.postalCode}) — {BUSINESS.area}</p>
+    <div class="flex gap-6">
+      <a href={BUSINESS.phoneHref} class="transition-colors hover:text-lime">{BUSINESS.phone}</a>
+      <a href={`mailto:${BUSINESS.email}`} class="transition-colors hover:text-lime">{BUSINESS.email}</a>
+    </div>
+    <div class="flex gap-6">
+      <a href="/mentions-legales" class="transition-colors hover:text-pale">Mentions légales</a>
+      <span>© {year}</span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,53 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { BUSINESS } from '../consts';
+---
+
+<section id="entreprise" class="scroll-mt-24 border-b border-pale/10">
+  <div class="mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
+    <SectionHeading index="03" eyebrow="Qui sommes-nous" title="L’entreprise" />
+
+    <div class="grid gap-14 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <p class="reveal font-display text-2xl leading-snug tracking-tight text-pale md:text-[2rem]">
+          «&nbsp;Depuis {BUSINESS.founded}, nous façonnons la plaque de plâtre comme une
+          matière à part entière&nbsp;: plafonds travaillés, cloisons nettes, meubles
+          uniques — chaque projet est du <span class="bg-gradient-to-r from-lime-soft to-lime bg-clip-text font-medium text-transparent">sur&nbsp;mesure</span>.&nbsp;»
+        </p>
+
+        <div class="reveal d1 mt-10 max-w-xl space-y-5 text-[15px] leading-relaxed text-sage">
+          <p>
+            Basée à {BUSINESS.locality}, dans le Pays de Nay, l’entreprise intervient sur tout
+            le Béarn — de Pau aux villages alentour — en neuf comme en rénovation.
+          </p>
+          <p>
+            Spécialisée également dans l’isolation par l’intérieur des murs et plafonds,
+            l’entreprise est <strong class="font-medium text-pale">qualifiée RGE</strong>&nbsp;:
+            vos travaux de rénovation énergétique peuvent vous faire bénéficier des aides de l’État.
+          </p>
+        </div>
+
+        <ul class="reveal d2 mt-10 grid max-w-xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-pale/10 bg-pale/10 text-sm sm:grid-cols-4">
+          {['Sur mesure', 'Neuf & réno', 'Qualifié RGE', 'Devis gratuit'].map((b) => (
+            <li class="bg-night px-4 py-3.5 text-center font-medium text-pale/80">{b}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="reveal d1 lg:col-span-5">
+        <figure class="lg:sticky lg:top-28">
+          <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-night-soft ring-1 ring-pale/10">
+            <img
+              src="/images/realisations/18.jpg"
+              alt="Isolation par l’intérieur : pose des fourrures métalliques sur isolant — chantier Déco & Design"
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover"
+            />
+          </div>
+          <figcaption class="mt-4 text-[13px] text-sage">Sur chantier — Pays de Nay</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,117 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { BUSINESS } from '../consts';
+---
+
+<section id="contact" class="scroll-mt-24 text-pale">
+  <div class="mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
+    <SectionHeading index="04" eyebrow="Devis gratuit" title="Parlons de votre projet" />
+
+    <div class="grid gap-16 lg:grid-cols-2">
+      <div class="reveal">
+        <p class="max-w-md text-[15px] leading-relaxed text-sage">
+          Plafond, cloison, meuble sur mesure, isolation ou rénovation&nbsp;: appelez-nous
+          ou laissez-nous un message — nous revenons vers vous rapidement.
+        </p>
+
+        <ul class="mt-12 divide-y divide-line border-y border-line">
+          <li>
+            <a href={BUSINESS.phoneHref} class="group flex items-center justify-between py-5">
+              <span class="text-[11px] font-medium uppercase tracking-[0.28em] text-sage">Téléphone</span>
+              <span class="font-display text-2xl font-light transition-colors group-hover:text-lime">{BUSINESS.phone}</span>
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${BUSINESS.email}`} class="group flex items-center justify-between gap-6 py-5">
+              <span class="text-[11px] font-medium uppercase tracking-[0.28em] text-sage">Email</span>
+              <span class="font-display text-xl font-light transition-colors group-hover:text-lime md:text-2xl">{BUSINESS.email}</span>
+            </a>
+          </li>
+          <li class="flex items-center justify-between gap-6 py-5">
+            <span class="text-[11px] font-medium uppercase tracking-[0.28em] text-sage">Secteur</span>
+            <span class="text-right text-[15px] text-pale/70">{BUSINESS.area}</span>
+          </li>
+        </ul>
+      </div>
+
+      <form
+        id="contact-form"
+        action={`https://formsubmit.co/${BUSINESS.email}`}
+        method="POST"
+        class="reveal d1 self-start lg:pl-10"
+      >
+        <input type="hidden" name="_subject" value="Nouvelle demande de devis — site Déco & Design" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
+
+        <div class="grid gap-x-8 gap-y-7 sm:grid-cols-2">
+          <label class="block">
+            <span class="mb-2 block text-[11px] font-medium uppercase tracking-[0.24em] text-sage">Nom *</span>
+            <input required name="nom" type="text" autocomplete="name" class="w-full border-b border-line bg-transparent py-2.5 outline-none transition-colors placeholder:text-pale/25 focus:border-lime" placeholder="Votre nom" />
+          </label>
+          <label class="block">
+            <span class="mb-2 block text-[11px] font-medium uppercase tracking-[0.24em] text-sage">Téléphone</span>
+            <input name="telephone" type="tel" autocomplete="tel" class="w-full border-b border-line bg-transparent py-2.5 outline-none transition-colors placeholder:text-pale/25 focus:border-lime" placeholder="06 …" />
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="mb-2 block text-[11px] font-medium uppercase tracking-[0.24em] text-sage">Email *</span>
+            <input required name="email" type="email" autocomplete="email" class="w-full border-b border-line bg-transparent py-2.5 outline-none transition-colors placeholder:text-pale/25 focus:border-lime" placeholder="vous@exemple.fr" />
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="mb-2 block text-[11px] font-medium uppercase tracking-[0.24em] text-sage">Type de projet</span>
+            <select name="projet" class="w-full appearance-none border-b border-line bg-transparent py-2.5 outline-none transition-colors focus:border-lime [&>option]:text-night">
+              <option>Plafond / faux plafond</option>
+              <option>Cloison / doublage</option>
+              <option>Meuble sur mesure</option>
+              <option>Isolation intérieure</option>
+              <option>Rénovation</option>
+              <option>Autre</option>
+            </select>
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="mb-2 block text-[11px] font-medium uppercase tracking-[0.24em] text-sage">Votre projet *</span>
+            <textarea required name="message" rows="4" class="w-full resize-none border-b border-line bg-transparent py-2.5 outline-none transition-colors placeholder:text-pale/25 focus:border-lime" placeholder="Décrivez vos travaux en quelques mots…"></textarea>
+          </label>
+        </div>
+
+        <button
+          type="submit"
+          class="mt-9 w-full rounded-full bg-lime px-6 py-4 text-[13px] font-semibold tracking-wide text-night shadow-lg shadow-lime/15 transition-all hover:-translate-y-0.5 hover:bg-lime-soft disabled:opacity-60 sm:w-auto sm:px-10"
+        >
+          Envoyer ma demande
+        </button>
+        <p id="form-status" class="mt-5 hidden text-sm" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('form-status');
+  const btn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!btn || !status) return;
+    btn.disabled = true;
+    status.classList.remove('hidden', 'text-red-300', 'text-lime');
+    status.textContent = 'Envoi en cours…';
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/decoetdesign64@gmail.com', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      });
+      if (!res.ok) throw new Error();
+      form.reset();
+      status.classList.add('text-lime');
+      status.textContent = 'Message envoyé, merci ! Nous vous recontactons rapidement.';
+    } catch {
+      status.classList.add('text-red-300');
+      status.textContent = 'L’envoi a échoué — appelez-nous au 07 77 30 70 38 ou écrivez à decoetdesign64@gmail.com.';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>

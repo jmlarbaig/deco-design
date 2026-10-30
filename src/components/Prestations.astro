@@ -1,0 +1,38 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { PRESTATIONS } from '../consts';
+---
+
+<section id="prestations" class="scroll-mt-24 border-b border-pale/10">
+  <div class="mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
+    <SectionHeading index="01" eyebrow="Ce que nous faisons" title="Prestations" />
+
+    <ul>
+      {PRESTATIONS.map((p, i) => (
+        <li class="reveal group border-t border-pale/10 last:border-b">
+          <div class="grid items-baseline gap-2 rounded-xl py-7 transition-colors duration-300 group-hover:bg-lime/5 md:grid-cols-[5rem_1fr_1fr_3rem] md:gap-8 md:px-4 md:py-9">
+            <span class="font-display text-lg font-light text-sage" aria-hidden="true">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <h3 class="font-display text-2xl tracking-tight transition-transform duration-300 group-hover:translate-x-2 group-hover:text-lime md:text-3xl">
+              {p.title}
+            </h3>
+            <p class="max-w-md text-sm leading-relaxed text-sage md:justify-self-end md:text-right">
+              {p.text}
+            </p>
+            <span class="hidden font-display text-xl font-light text-pale/20 transition-all duration-300 group-hover:translate-x-1 group-hover:text-lime md:block" aria-hidden="true">
+              →
+            </span>
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    <p class="reveal mt-10 text-sm text-sage">
+      Un projet qui ne rentre dans aucune case&nbsp;?
+      <a href="#contact" class="font-medium text-pale underline decoration-lime decoration-2 underline-offset-4 transition-colors hover:text-lime">
+        C’est justement notre métier →
+      </a>
+    </p>
+  </div>
+</section>

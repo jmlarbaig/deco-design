@@ -1,0 +1,75 @@
+---
+import { BUSINESS } from '../consts';
+
+const links = [
+  { href: '#prestations', label: 'Prestations' },
+  { href: '#realisations', label: 'Réalisations' },
+  { href: '#entreprise', label: 'L’entreprise' },
+  { href: '#contact', label: 'Contact' },
+];
+---
+
+<header class="fixed inset-x-0 top-4 z-50 px-4 md:top-6 md:px-6">
+  <div
+    id="site-header"
+    data-top
+    class="mx-auto flex max-w-5xl translate-y-0 items-center justify-between rounded-full border border-pale/10 bg-night/70 py-2.5 pl-4 pr-3 opacity-100 shadow-lg shadow-black/30 backdrop-blur-xl transition-all duration-500 data-[top]:pointer-events-none data-[top]:-translate-y-3 data-[top]:opacity-0 data-[scrolled]:border-pale/15 data-[scrolled]:bg-night/90"
+  >
+    <a href="#" aria-label="Déco & Design — accueil" class="shrink-0">
+      <img src="/logo/logo-512.png" alt="Déco & Design" width="512" height="512" class="h-9 w-auto md:h-11" />
+    </a>
+
+    <nav class="hidden items-center gap-8 text-[13px] font-medium text-pale/70 lg:flex" aria-label="Navigation principale">
+      {links.map((l) => <a href={l.href} class="transition-colors hover:text-pale">{l.label}</a>)}
+    </nav>
+
+    <a
+      href={BUSINESS.phoneHref}
+      class="hidden rounded-full bg-lime px-5 py-2.5 text-[13px] font-semibold tracking-wide text-night transition-colors hover:bg-lime-soft lg:inline-block"
+    >
+      {BUSINESS.phone}
+    </a>
+
+    <button
+      id="menu-toggle"
+      class="rounded-full p-2.5 transition-colors hover:bg-pale/10 lg:hidden"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <path d="M3 7h18M3 12h18M3 17h12" stroke-linecap="round" />
+      </svg>
+    </button>
+  </div>
+
+  <nav
+    id="mobile-nav"
+    class="mx-auto mt-2 hidden max-w-5xl rounded-3xl border border-pale/10 bg-night/95 p-6 shadow-xl shadow-black/40 backdrop-blur-xl lg:hidden"
+    aria-label="Navigation mobile"
+  >
+    <ul class="flex flex-col gap-4 text-sm font-medium">
+      {links.map((l) => <li><a href={l.href} class="block text-pale/80">{l.label}</a></li>)}
+      <li class="border-t border-pale/10 pt-4">
+        <a href={BUSINESS.phoneHref} class="inline-block rounded-full bg-lime px-5 py-2.5 font-semibold text-night">{BUSINESS.phone}</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+  const btn = document.getElementById('menu-toggle');
+  const nav = document.getElementById('mobile-nav');
+
+  btn?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', String(open));
+  });
+  nav?.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => {
+      nav.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+    }),
+  );
+</script>

@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import Intro from '../components/Intro.astro';
+import Hero from '../components/Hero.astro';
+import Prestations from '../components/Prestations.astro';
+import Realisations from '../components/Realisations.astro';
+import APropos from '../components/APropos.astro';
+import Contact from '../components/Contact.astro';
+import { SEO } from '../consts';
+---
+
+<Base title={SEO.title} description={SEO.description}>
+  <Intro />
+  <Hero />
+  <Prestations />
+  <Realisations />
+  <APropos />
+  <Contact />
+</Base>

@@ -1,0 +1,43 @@
+---
+const line2 = 'façonnés sur mesure.';
+---
+
+<section id="intro" class="relative flex h-svh flex-col items-center justify-center overflow-hidden px-6 text-center">
+  <div id="intro-inner" class="will-change-transform">
+    <p class="intro-item text-[11px] font-medium uppercase tracking-[0.32em] text-sage">
+      Déco &amp; Design — Artisan plaquiste · Pays de Nay
+    </p>
+    <p class="mt-9 font-display text-[11vw] font-medium leading-[1.04] tracking-[-0.03em] sm:text-7xl md:text-8xl">
+      <span class="block overflow-hidden py-1">
+        <span class="intro-line">Vos intérieurs,</span>
+      </span>
+      <span class="block overflow-hidden py-1">
+        <span class="intro-line delay bg-gradient-to-r from-pale via-lime-soft to-lime bg-clip-text text-transparent">{line2}</span>
+      </span>
+    </p>
+  </div>
+
+  <div class="intro-item absolute bottom-10 flex flex-col items-center gap-3 text-sage" aria-hidden="true">
+    <span class="text-[10px] font-medium uppercase tracking-[0.3em]">Défiler</span>
+    <svg class="animate-bounce" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </div>
+</section>
+
+<script>
+  const inner = document.getElementById('intro-inner');
+  const header = document.getElementById('site-header');
+
+  const onScroll = () => {
+    // L'accroche s'efface doucement, la navbar apparaît une fois l'intro passée
+    const p = Math.min(window.scrollY / (window.innerHeight * 0.6), 1);
+    if (inner) {
+      inner.style.opacity = String(1 - p);
+      inner.style.transform = `translateY(${-48 * p}px)`;
+    }
+    header?.toggleAttribute('data-top', window.scrollY < window.innerHeight * 0.55);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>
