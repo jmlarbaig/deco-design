@@ -72,6 +72,30 @@ body {
   to { opacity: 1; }
 }
 
+/* Éléments ludiques */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+.float { animation: float 6s ease-in-out infinite; }
+.float.slow { animation-duration: 9s; }
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.spin-slow { animation: spin-slow 18s linear infinite; }
+.spin-slower { animation: spin-slow 32s linear infinite; }
+
+/* Photos façon stickers : légère rotation alternée + dressage au survol */
+.sticker {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sticker:nth-child(odd) figure { transform: rotate(-1.2deg); }
+.sticker:nth-child(even) figure { transform: rotate(1deg); }
+.sticker:hover figure {
+  transform: rotate(0deg) scale(1.015);
+}
+
 /* Défilement continu (marquee) — dupliquer le contenu x2 dans la piste */
 @keyframes marquee {
   from { transform: translateX(0); }
@@ -85,5 +109,5 @@ body {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .intro-line, .intro-item { opacity: 1; transform: none; animation: none; }
-  .marquee-track { animation: none; }
+  .marquee-track, .float, .float.slow, .spin-slow, .spin-slower { animation: none; }
 }

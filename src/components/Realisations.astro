@@ -6,7 +6,7 @@ import { REALISATIONS } from '../consts';
 <section id="realisations" class="scroll-mt-24 border-b border-pale/10">
   <div class="mx-auto max-w-7xl px-6 pt-24 md:px-10 md:pt-32">
     <div class="flex items-end justify-between gap-6">
-      <SectionHeading index="02" eyebrow="Nos chantiers" title="Réalisations" />
+      <SectionHeading index="02" eyebrow="nos chantiers, en vrai" title="La preuve en images" />
       <div class="reveal mb-14 hidden items-center gap-4 md:mb-20 md:flex">
         <p class="font-display text-lg font-light text-sage" aria-live="polite">
           <span id="carousel-index" class="font-medium text-pale">01</span>
@@ -38,7 +38,7 @@ import { REALISATIONS } from '../consts';
       class="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-6 [scrollbar-width:none] [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)] md:gap-8 md:px-10 [&::-webkit-scrollbar]:hidden"
     >
       {REALISATIONS.map((r) => (
-        <li class="carousel-slide shrink-0 snap-center">
+        <li class="carousel-slide sticker shrink-0 snap-center">
           <figure>
             <div class="h-[52svh] overflow-hidden rounded-2xl bg-night-soft ring-1 ring-pale/10 md:h-[66svh]">
               <img
@@ -51,7 +51,7 @@ import { REALISATIONS } from '../consts';
               />
             </div>
             <figcaption class="mt-3 font-display text-sm font-light text-sage">
-              <span class="font-medium text-lime">{r.num}</span> — Réalisation
+              <span class="font-medium text-lime">{r.num}</span> — chantier
             </figcaption>
           </figure>
         </li>

@@ -3,9 +3,21 @@ const line2 = 'façonnés sur mesure.';
 ---
 
 <section id="intro" class="relative flex h-svh flex-col items-center justify-center overflow-hidden px-6 text-center">
+  {/* Étoiles décoratives */}
+  <svg class="intro-item spin-slow absolute left-[12%] top-[22%] h-6 w-6 text-lime/70 md:h-9 md:w-9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 1l2.4 8.6L23 12l-8.6 2.4L12 23l-2.4-8.6L1 12l8.6-2.4z" />
+  </svg>
+  <svg class="intro-item spin-slower float absolute right-[14%] top-[30%] h-4 w-4 text-lime/50 md:h-7 md:w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 1l2.4 8.6L23 12l-8.6 2.4L12 23l-2.4-8.6L1 12l8.6-2.4z" />
+  </svg>
+  <svg class="intro-item float slow absolute bottom-[24%] left-[20%] h-3 w-3 text-pale/30 md:h-5 md:w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 1l2.4 8.6L23 12l-8.6 2.4L12 23l-2.4-8.6L1 12l8.6-2.4z" />
+  </svg>
+
   <div id="intro-inner" class="will-change-transform">
-    <p class="intro-item text-[11px] font-medium uppercase tracking-[0.32em] text-sage">
-      Déco &amp; Design — Artisan plaquiste · Pays de Nay
+    <p class="intro-item inline-flex items-center gap-2.5 rounded-full border border-pale/15 bg-white/5 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.28em] text-sage">
+      <span class="h-1.5 w-1.5 rounded-full bg-lime ring-2 ring-lime/30" aria-hidden="true"></span>
+      Déco &amp; Design — plaquiste · Pays de Nay
     </p>
     <p class="mt-9 font-display text-[11vw] font-medium leading-[1.04] tracking-[-0.03em] sm:text-7xl md:text-8xl">
       <span class="block overflow-hidden py-1">
@@ -14,6 +26,9 @@ const line2 = 'façonnés sur mesure.';
       <span class="block overflow-hidden py-1">
         <span class="intro-line delay bg-gradient-to-r from-pale via-lime-soft to-lime bg-clip-text text-transparent">{line2}</span>
       </span>
+    </p>
+    <p class="intro-item mx-auto mt-8 inline-block -rotate-2 rounded-full bg-lime px-5 py-2 font-display text-sm font-semibold tracking-wide text-night">
+      et oui, tout ça en placo
     </p>
   </div>
 

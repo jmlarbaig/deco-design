@@ -67,7 +67,9 @@ public/
   Titres en Space Grotesk (font-display), pas d'italique décoratif.
   Écran d'accroche pleine page (`Intro.astro`) avant le site, navbar en pilule
   de verre masquée tant que l'intro est visible, reveals au scroll
-  (`reveal` + d1/d2/d3), marquee en bas de hero. Pas de nouvelle dépendance
+  (`reveal` + d1/d2/d3), marquee en bas de hero.
+  Côté fun : étoiles `spin-slow`/`float`, photos `sticker` penchées,
+  badges inclinés (`rotate-1/-rotate-1`), ton décontracté dans les libellés. Pas de nouvelle dépendance
   sans raison, pas de JS framework.
 - **Formulaire** : envoi via FormSubmit (ajax) vers `decoetdesign64@gmail.com`.
   ⚠️ Une **activation unique** est requise : le 1er envoi réel déclenche un mail de

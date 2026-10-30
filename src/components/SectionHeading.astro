@@ -9,6 +9,9 @@ const { index, eyebrow, title } = Astro.props;
 
 <div class="reveal mb-14 text-pale md:mb-20">
   <p class="flex items-center gap-4 text-[11px] font-medium uppercase tracking-[0.28em] text-sage">
+    <svg class="spin-slow h-3.5 w-3.5 shrink-0 text-lime" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 1l2.4 8.6L23 12l-8.6 2.4L12 23l-2.4-8.6L1 12l8.6-2.4z" />
+    </svg>
     <span class="font-display text-sm font-medium normal-case tracking-normal text-lime">{index}.</span>
     {eyebrow}
     <span class="h-px flex-1 bg-pale/15" aria-hidden="true"></span>
